@@ -1,15 +1,32 @@
 #include "main.h"
-#include "stdlib.h"
+#include <stdlib.h>
+#include <stddef.h>
+
 /**
- *malloc_checked - function
- * @b: variable
- * Return: pointer
+ * create_array - Creates array with given size
+ * @size: - size of array
+ * @c: - character of every element
+ * Return: Every element of array
  */
-void *malloc_checked(unsigned int b)
+
+
+char *create_array(unsigned int size, char c)
 {
-	void *t;
-	t = malloc(b);
-	if(t == NULL)
-		exit(98);
-	return(t);	
+	char *arr;
+	unsigned int j;
+
+	j = 0;
+	arr = malloc(size * sizeof(char));
+	if (arr == NULL)
+	{
+		return (0);
+	}
+	if (size == 0)
+		return (NULL);
+	while (j < size)
+	{
+		arr[j] = c;
+		j++;
+	}
+	return (arr);
 }	
